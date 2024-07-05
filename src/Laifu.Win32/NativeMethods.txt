@@ -1,0 +1,14 @@
+// WINDOW
+HWND
+SetWindowText
+GetWindowText
+GetWindowTextLength
+GetDesktopWindow
+GetWindowRect
+EnumWindows
+SetWindowPos
+MoveWindow
+GetClientRect
+GetWindowLongPtr
+GetWindowLong
+FormatMessage
