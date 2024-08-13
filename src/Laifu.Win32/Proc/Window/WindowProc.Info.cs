@@ -30,7 +30,7 @@ public partial class WindowProc
         };
     }
 
-    #region General
+
 
     /// <summary>
     /// 窗口的标题文本，显示在窗口的标题栏中。
@@ -77,13 +77,8 @@ public partial class WindowProc
     /// </summary>
     public long UserData => NativeHelper.GetWindowLong(Hwnd, WINDOW_LONG_PTR_INDEX.GWL_USERDATA);
 
-    #endregion
-
-    #region Styles
 
 
-
-    #endregion
 
     #region Windows
 
@@ -116,10 +111,7 @@ public partial class WindowProc
 
     #region Class
 
-    /// <summary>
-    /// 窗口类名，定义窗口类的名称，用于窗口类注册和创建。
-    /// </summary>
-    string ClassName { get; }
+
 
     /// <summary>
     /// 窗口类样式（CS_开头的常量），定义窗口类的行为和特性。

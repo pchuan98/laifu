@@ -15,7 +15,7 @@ public static class NativeHelper
     {
 #if X64
         var rec = PInvoke.GetWindowLongPtr(hwnd, index);
-        
+
         if (rec != 0) return rec.ToInt64();
 
         var code = ErrorHelper.ErrorCode;
@@ -29,6 +29,28 @@ public static class NativeHelper
         var code = ErrorHelper.ErrorCode;
         var str = ErrorHelper.ErrorCode2String((uint)code);
         throw new Exception($"GetWindowLong [{(int)index}] - Error. Message is '{str}'");
+#endif
+    }
+
+    internal static long SetWindowLong(HWND hwnd, WINDOW_LONG_PTR_INDEX index, long value)
+    {
+#if X64
+        var rec = PInvoke.SetWindowLongPtr(hwnd, index, (nint)value);
+
+        if (rec != 0) return rec.ToInt64();
+
+        var code = ErrorHelper.ErrorCode;
+        var str = ErrorHelper.ErrorCode2String((uint)code);
+
+        throw new Exception($"GetWindowLong [{(int)index}] - Error. Message is '{str}'");
+#elif X86
+        var rec = PInvoke.SetWindowLong(hwnd, index, (int)value);
+
+        if (rec != 0) return rec;
+
+        var code = ErrorHelper.ErrorCode;
+        var str = ErrorHelper.ErrorCode2String((uint)code);
+        throw new Exception($"SetWindowLong [{(int)index}] - Error. Message is '{str}'");
 #endif
     }
 }

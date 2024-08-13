@@ -9,6 +9,16 @@ EnumWindows
 SetWindowPos
 MoveWindow
 GetClientRect
+
 GetWindowLongPtr
 GetWindowLong
+SetWindowLongPtr
+SetWindowLong
+
 FormatMessage
+GetClassName
+
+WINDOW_STYLE
+WINDOW_EX_STYLE
+
+SetLayeredWindowAttributes 
